@@ -1,6 +1,9 @@
-Main concepts in this repo:
+Main concepts in this repository:
 	Basic Inheritance
 	Generics
 	Closures
 	Comparators
-	Basic sorting functions on very small data sets
+	Basic sorting functions on small data sets
+	
+Note: In LSD Radix Sort, there's some questionable stuff with generics (Assuming the type is an Integer). 
+		I am aware of that. At this point I'm only using the Integer class as the type passed to the sorting objects.

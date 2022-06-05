@@ -1,13 +1,15 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Comparator;
 
 public class InsertionSort<T extends Comparable<T>> extends Sorter<T>{
-	public InsertionSort(T[] elements) {
-		super(elements);
+	public InsertionSort(T[] elements, FileWriter outputFile) throws IOException {
+		super(elements, outputFile);
 	}
 //	basic insertionSort function
 //	returns sorted list
-	public T[] sort(Comparator<T> comparator) {
-//		first element considered initally sorted portion
+	public T[] sort(Comparator<T> comparator) throws IOException {
+//		first element considered initially sorted portion
 //		for each unsorted element in array
 		for(int currentIndex = 1; currentIndex < this.elements.length; currentIndex++) {
 //			assign variable to hold current moving element
@@ -23,7 +25,13 @@ public class InsertionSort<T extends Comparable<T>> extends Sorter<T>{
 			}
 			this.elements[probeIndex] = currentElement;
 		}
-		
+//		write sorted array to output file
+		this.outputFile.write("Sorted: ");
+		for(T currentInt : this.elements) {
+			this.outputFile.write(currentInt + " ");
+		}
+
+
 		return this.elements;
 	}
 	
